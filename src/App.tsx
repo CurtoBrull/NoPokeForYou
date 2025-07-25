@@ -33,6 +33,9 @@ function App() {
 	const [error, setError] = useState<string | null>(null);
 	const [trollStep, setTrollStep] = useState<'troll' | 'confirm'>('troll');
 
+	// Usar variable de entorno para la URL de la API
+	const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';
+
 	// Busca el modo troll (Gemini)
 	const handleSearch = async (pokemon: string) => {
 		setSearchedPokemon(pokemon);
@@ -42,7 +45,7 @@ function App() {
 		setPokemonData(null);
 		setTrollStep('troll');
 		try {
-			const response = await fetch(`http://localhost:8080/api/pokemon/${pokemon}`);
+			const response = await fetch(`${API_URL}/pokemon/${pokemon}`);
 			if (!response.ok) {
 				throw new Error('No se encontró el Pokémon o error en el servidor');
 			}
@@ -69,7 +72,7 @@ function App() {
 			setTrollStep('confirm');
 			try {
 				// Enviamos un query param especial para que el backend genere el warning
-				const response = await fetch(`http://localhost:8080/api/pokemon/${pokemon}?warning=1`);
+				const response = await fetch(`${API_URL}/pokemon/${pokemon}?warning=1`);
 				if (!response.ok) {
 					throw new Error('No se encontró el Pokémon o error en el servidor');
 				}
@@ -90,7 +93,7 @@ function App() {
 			setError(null);
 			setPokemonData(null);
 			try {
-				const response = await fetch(`http://localhost:8080/api/pokemon/${pokemon}?real=true`);
+				const response = await fetch(`${API_URL}/pokemon/${pokemon}?real=true`);
 				if (!response.ok) {
 					throw new Error('No se encontró el Pokémon real o error en el servidor');
 				}
