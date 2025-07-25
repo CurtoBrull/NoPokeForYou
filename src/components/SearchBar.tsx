@@ -25,13 +25,13 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Escribe el nombre de un Pokémon... (ej: Pikachu)"
-              className="w-full px-6 py-4 text-xl font-semibold rounded-2xl border-4 border-blue-400 bg-white shadow-lg focus:outline-none focus:border-purple-500 focus:ring-4 focus:ring-purple-200 transition-all duration-300"
+              className="w-full px-6 py-4 text-xl font-semibold rounded-2xl border-4 border-blue-500 bg-white shadow-inner-xl focus:outline-none focus:border-purple-600 focus:ring-4 focus:ring-purple-300 transition-all duration-300 placeholder-gray-400 text-gray-800"
             />
-            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
+            <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 text-blue-400 w-7 h-7" />
           </div>
           <button
             type="submit"
-            className="px-8 py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white font-black text-xl rounded-2xl shadow-lg hover:from-red-600 hover:to-pink-600 transform hover:scale-105 transition-all duration-300 border-4 border-red-600 flex items-center gap-2"
+            className="px-8 py-4 bg-gradient-to-br from-red-600 to-red-800 text-white font-black text-xl rounded-2xl shadow-2xl hover:from-red-700 hover:to-red-900 transform hover:scale-105 transition-all duration-300 border-4 border-red-400 flex items-center gap-2 active:scale-95 animate-pulse-once"
           >
             <Sparkles className="w-6 h-6" />
             ¡Sorpréndeme!
