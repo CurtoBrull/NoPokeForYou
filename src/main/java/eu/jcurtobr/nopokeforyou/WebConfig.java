@@ -1,4 +1,4 @@
-package com.example.nopokeforyou;
+package eu.jcurtobr.nopokeforyou;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

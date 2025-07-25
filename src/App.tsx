@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Interfaz para datos de Pokémon real y troll
 interface PokemonType {
@@ -32,6 +32,16 @@ function App() {
 	const [loading, setLoading] = useState<boolean>(false);
 	const [error, setError] = useState<string | null>(null);
 	const [trollStep, setTrollStep] = useState<'troll' | 'confirm'>('troll');
+
+	// Mostrar alerta informativa solo una vez por sesión
+	useEffect(() => {
+		if (!sessionStorage.getItem('backendAlertShown')) {
+			alert(
+				'Aviso: El backend de Render puede estar desactivado por inactividad. La primera petición puede tardar hasta 1 minuto en responder.'
+			);
+			sessionStorage.setItem('backendAlertShown', 'true');
+		}
+	}, []);
 
 	// Usar variable de entorno para la URL de la API
 	const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api';

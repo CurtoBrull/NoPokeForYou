@@ -1,4 +1,4 @@
-package com.example.nopokeforyou;
+package eu.jcurtobr.nopokeforyou;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.slf4j.Logger;
