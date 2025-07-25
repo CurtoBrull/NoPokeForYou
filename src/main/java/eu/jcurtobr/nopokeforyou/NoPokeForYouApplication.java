@@ -1,4 +1,4 @@
-package com.example.nopokeforyou;
+package eu.jcurtobr.nopokeforyou;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
