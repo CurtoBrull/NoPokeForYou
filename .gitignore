@@ -23,3 +23,13 @@ dist-ssr
 *.sln
 *.sw?
 .env
+
+# Java/Spring Boot
+target/
+build/
+out/
+.classpath
+.settings/
+.project
+
+package-lock.json
