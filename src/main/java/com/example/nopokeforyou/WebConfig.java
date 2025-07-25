@@ -12,8 +12,15 @@ public class WebConfig {
     return new WebMvcConfigurer() {
       @Override
       public void addCorsMappings(CorsRegistry registry) {
+        String frontendUrl = System.getenv().getOrDefault("FRONTEND_URL", "https://TU_DOMINIO_PRODUCCION.com");
+        String[] allowedOrigins;
+        if (frontendUrl.contains("localhost")) {
+          allowedOrigins = new String[] { "http://localhost:3000" };
+        } else {
+          allowedOrigins = new String[] { frontendUrl };
+        }
         registry.addMapping("/api/**")
-            .allowedOrigins("http://localhost:3000", "https://TU_DOMINIO_PRODUCCION.com")
+            .allowedOrigins(allowedOrigins)
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*");
       }
